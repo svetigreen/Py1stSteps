@@ -5,7 +5,8 @@
 people = {
     'Alice': {
         'phone': '2341',
-        'addr': 'Foo drive 23'
+        'addr': 'Foo drive 23',
+        'age': 42
     },
     'Beth': {
         'phone': '9102',
@@ -22,6 +23,7 @@ labels = {
     'phone': 'phone number',
     'addr': 'address'
 }
+
 
 # Create a dictionary copy with all lower keys
 people_lower_keys = {key.lower(): value for key, value in people.items()}
@@ -46,10 +48,8 @@ while flag_quit == 'y':
     # Only try to print information if the name is a valid key in
     # our dictionary:
     print("{}'s {} is {}.".format(name, label, result))
-
+   
     flag_quit = input('Do you like to look for anything else? (y/n): ')
     match flag_quit:
         case 'n':
             print("Bye bye!")
-
-
