@@ -19,7 +19,7 @@ for _ in range(20):
 print("\n")
 
 # Create a new instance of the Fibs class for the second loop
-fibs = Fibs() # otherwise it will iterate from the position on it finished before
+fibs = Fibs()  # otherwise it will iterate from the position on it finished before
 # Print out the smallest Fib number that is greater than 1000
 print("First Fibonacci number greater than 1000:")
 for f in fibs:
