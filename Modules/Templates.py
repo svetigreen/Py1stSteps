@@ -73,6 +73,20 @@ def process_template(input_filename, output_filename):
         output_file.write(result)
 
 
+def add_linenumbers(input_filename):
+    # Open the file in read mode to read the lines
+    with open(input_filename, 'r') as input_file:
+        lines = input_file.readlines()
+
+    # Add line numbers to each line
+    for i in range(len(lines)):
+        lines[i] = f"{i + 1}: {lines[i]}"
+
+    # Open the file in write mode to write the lines back
+    with open(input_filename, 'w') as output_file:
+        output_file.writelines(lines)
+
+
 if __name__ == '__main__':
     # print("Current Working Directory:", os.getcwd())
     # Replace 'template.txt' with the actual path to your template file
@@ -84,4 +98,5 @@ if __name__ == '__main__':
     process_definitions(definitions_file)
 
     process_template(template_file, output_file)
+    add_linenumbers(output_file)
     print(f"Processed output written to {output_file}")
