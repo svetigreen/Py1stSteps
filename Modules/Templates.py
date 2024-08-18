@@ -87,6 +87,24 @@ def add_linenumbers(input_filename):
         output_file.writelines(lines)
 
 
+def process(line, line_number):
+    line = f"{line_number}: {line}"
+    return line
+
+
+def add_linenumbers2(input_filename):
+    # Step 1: Read and process each line
+    processed_lines = []
+    with open(input_filename, 'r') as file:
+        for line_number, line in enumerate(file, start=1):
+            processed_line = process(line, line_number)
+            processed_lines.append(processed_line)
+
+    # Step 2: Write the processed lines back to the same file
+    with open(input_filename, 'w') as file:
+        file.writelines(processed_lines)
+
+
 if __name__ == '__main__':
     # print("Current Working Directory:", os.getcwd())
     # Replace 'template.txt' with the actual path to your template file
@@ -98,5 +116,5 @@ if __name__ == '__main__':
     process_definitions(definitions_file)
 
     process_template(template_file, output_file)
-    add_linenumbers(output_file)
+    add_linenumbers2(output_file)
     print(f"Processed output written to {output_file}")
